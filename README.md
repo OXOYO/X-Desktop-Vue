@@ -1,4 +1,4 @@
-# x-desktop-vue
+# X-Desktop-Vue
 
 > A Vue.js project
 

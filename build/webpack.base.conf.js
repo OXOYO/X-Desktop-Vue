@@ -1,5 +1,4 @@
 var path = require('path')
-var fs = require('fs')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
@@ -24,8 +23,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-    },
-    symlinks: false
+    }
   },
   module: {
     rules: [

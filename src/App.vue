@@ -21,7 +21,6 @@
 <template>
   <div id="app">
     <h1>X-Desktop-Vue</h1>
-    <router-view></router-view>
   </div>
 </template>
 

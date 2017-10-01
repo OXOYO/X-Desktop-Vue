@@ -4,16 +4,26 @@
 */
 
 <style scoped lang="less" rel="stylesheet/less">
-
+  .platform-main {
+    width: 100%;
+    height: 100%;
+  }
 </style>
 
 <template>
-  <h1>TODO Platform</h1>
+  <div class="platform-main">
+    <Desktop></Desktop>
+  </div>
 </template>
 
 <script>
+  import Desktop from '../containers/Desktop.vue'
+
   export default {
-    name: 'Platform'
+    name: 'Platform',
+    components: {
+      Desktop
+    }
   }
 </script>
 

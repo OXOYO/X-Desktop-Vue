@@ -28,7 +28,7 @@
     @contextmenu.stop.prevent="desktopRightClick($event)"
   >
     <!-- 雨滴背景 -->
-    <RainDay style="position: absolute;" :config="rainDayConfig"></RainDay>
+    <XRainDay style="position: absolute;" :config="rainDayConfig"></XRainDay>
     <!-- @mousemove.stop.prevent="moveResize" -->
     <!-- 桌面图标 -->
     <DesktopIconBox :desktopIcon="desktopIcon"></DesktopIconBox>
@@ -36,8 +36,6 @@
     <ContextMenu></ContextMenu>
     <!-- TODO 任务栏 -->
     <TaskBarBox></TaskBarBox>
-    <!-- APP 弹窗容器 -->
-    <!--<AppModalBox></AppModalBox>-->
     <!-- TODO 循环AppModal -->
     <AppModal
       v-for="item in modalMap"
@@ -45,7 +43,7 @@
       :info="item"
     >
       <keep-alive>
-          <component :is="item.component" v-if="!(item.closeApp && item.closeApp)"></component>
+          <component :is="item.component" v-if="item.component"></component>
       </keep-alive>
     </AppModal>
     <!-- TODO Widget -->
@@ -57,7 +55,6 @@
   import DesktopIconBox from './DesktopIconBox.vue'
   import ContextMenu from '../components/ContextMenu.vue'
   import TaskBarBox from './TaskBarBox.vue'
-//  import AppModalBox from './AppModalBox.vue'
   import AppModal from '../components/AppModal.vue'
 
   export default {
@@ -70,7 +67,6 @@
       DesktopIconBox,
       ContextMenu,
       TaskBarBox,
-      // AppModalBox,
       AppModal
     },
     data () {
@@ -174,7 +170,6 @@
             'top': yVal + 'px'
           }
 
-          console.log('data', data, _t.modalMap)
           tmpInfo = _t.modalMap[data.name]
           tmpInfo = {
             ...tmpInfo,
@@ -214,8 +209,6 @@
           _t.$Message.success(res.msg || '获取应用列表成功！')
         }
         _t.appList = resList
-        console.log('appList', resList)
-        console.log('_t.desktopIcon', _t.desktopIcon)
         // TODO 解析appList，渲染deskIcon、taskarIcon
         let desktopIcon = {
           iconList: [],
@@ -224,7 +217,6 @@
         let taskBarIconMap = {}
         for (let i = 0, len = resList.length, item, tmpObj = {}, userConfig, appInfo, appDefConfig; i < len; i++) {
           item = resList[i]
-          console.log(item)
           // 用户配置信息
           userConfig = JSON.parse(item.config)
           // 应用信息
@@ -250,11 +242,9 @@
           }
           desktopIcon.iconList.push(tmpObj)
           if (tmpObj.taskBar.isPinned) {
-            console.log('tmpObj', tmpObj)
             taskBarIconMap[tmpObj.app.name] = tmpObj
           }
         }
-        console.log('desktopIcon', desktopIcon)
         // TODO 分发mutations，更新desktopIcon数据
         _t.$store.commit('Platform/webDesktop/components/desktop/update', desktopIcon)
         // TODO 初始化任务栏图标信息

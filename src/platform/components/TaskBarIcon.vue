@@ -137,8 +137,8 @@
         if (!icon) {
           return {}
         }
-//        console.log('icon', icon)
-//        let img = require(icon)
+        // console.log('icon', icon)
+        // let img = require(icon)
         let img = icon
         return {
           backgroundImage: 'url(' + img + ')'
@@ -163,7 +163,7 @@
         let appInfo = _t.info
         let currentSize = appInfo.modal.size
         let oldSize = appInfo.modal.oldSize
-        console.log('size:', currentSize, 'oldSize:', oldSize)
+        // console.log('size:', currentSize, 'oldSize:', oldSize)
         let isNeedChangeZIndex = (appInfo) => {
           let flag = false
           // 1.先判断AppModal个数，大于1个则需要处理zIndex
@@ -191,13 +191,12 @@
         }
         let flag = false
         if (currentSize !== 'min') {
-          console.log('zIndex', appInfo.modal.zIndex)
+          // console.log('zIndex', appInfo.modal.zIndex)
           // TODO 需要判断当前窗口z-index是否在顶层，在顶层则min窗口，不在顶层则将窗口置顶
           flag = isNeedChangeZIndex(appInfo)
-          console.log('flag', flag)
+          // console.log('flag', flag)
           if (flag) {
             // 更新当前弹窗层级
-            console.log('changeZIndex 004')
             _t.$store.commit('Platform/webDesktop/components/appModalBox/changeZIndex', appInfo)
           } else {
             tmpInfo = {

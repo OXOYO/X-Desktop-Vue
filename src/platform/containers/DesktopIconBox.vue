@@ -15,18 +15,18 @@
 <template>
   <div class="desktop-icon-box">
     <!-- 应用列表 -->
-    <u-desktop-icon v-for="item in desktopIconData.iconList" :key="item.app.id" :info="item" :showTitle="desktopIconData.showTitle"></u-desktop-icon>
+    <DesktopIcon v-for="item in desktopIconData.iconList" :key="item.app.id" :info="item" :showTitle="desktopIconData.showTitle"></DesktopIcon>
   </div>
 </template>
 
 <script>
-  import { mapState } from 'vuex'
+//  import { mapState } from 'vuex'
   import DesktopIcon from '../components/DesktopIcon.vue'
 
   export default {
     name: 'DesktopIconBox',
     components: {
-      'u-desktop-icon': DesktopIcon
+      DesktopIcon
     },
     props: {
       desktopIcon: {
@@ -42,10 +42,10 @@
     },
     data () {
       return {
-//        desktopIconData: {
-//          iconList: [],
-//          showTitle: true
-//        }
+        desktopIconData: {
+          iconList: [],
+          showTitle: true
+        }
       }
     },
     watch: {
@@ -56,19 +56,20 @@
         },
         deep: true
       }
-    },
-    computed: {
-      ...mapState('Platform', {
-        // 桌面图标
-        desktopIconData: state => {
-          return {
-            // TODO 应该通过接口获取
-            iconList: state.webDesktop.components.desktop.iconList,
-            showTitle: state.webDesktop.components.desktop.showTitle
-          }
-        }
-      })
     }
+//    ,
+//    computed: {
+//      ...mapState('Platform', {
+//        // 桌面图标
+//        desktopIconData: state => {
+//          return {
+//            // TODO 应该通过接口获取
+//            iconList: state.webDesktop.components.desktop.iconList,
+//            showTitle: state.webDesktop.components.desktop.showTitle
+//          }
+//        }
+//      })
+//    }
   }
 </script>
 

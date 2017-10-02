@@ -58,7 +58,6 @@
         let _t = this
         let el = _t.$el
         let img = document.querySelector('#rainDayBackground')
-        console.log('img', img)
         img.onload = function () {
           let engine = new RainyDay({
             image: this,

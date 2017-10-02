@@ -269,7 +269,6 @@
       triggerModal: function () {
         let _t = this
         // 更新当前弹窗层级
-        console.log('changeZIndex 003')
         _t.$store.commit('Platform/webDesktop/components/appModalBox/changeZIndex', _t.info)
       },
       // 双击切换窗口状态
@@ -302,7 +301,6 @@
         // 分发mutation，更新任务栏图标信息
         _t.$store.commit('Platform/webDesktop/components/taskBarBox/toggleApp', tmpInfo)
         // 更新当前弹窗层级
-        console.log('changeZIndex 002')
         _t.$store.commit('Platform/webDesktop/components/appModalBox/changeZIndex', tmpInfo)
       },
       // 处理弹窗状态
@@ -403,7 +401,7 @@
       },
       dragMoveHandel: function (event) {
         let _t = this
-        console.log('event', event)
+        // console.log('event', event)
         // 允许范围 5px
         let range = 5
         let xVal = event.clientX
@@ -415,7 +413,7 @@
           left: offsetX + 'px',
           top: offsetY + 'px'
         }
-        console.log('xVal', xVal, yVal)
+        // console.log('xVal', xVal, yVal)
         if (Math.abs(yVal) < range) {
           splitScreenType = 'max'
         } else if (Math.abs(xVal) < range) {
@@ -452,7 +450,7 @@
         })
       }
     },
-    created: function () {
+    created: async function () {
       let _t = this
       // 备份原有size
       let tmpInfo = {
@@ -464,10 +462,9 @@
         }
       }
       // 更新当前弹窗状态
-      _t.$store.dispatch('Platform/webDesktop/components/appModalBox/toggleApp', tmpInfo)
+      await _t.$store.dispatch('Platform/webDesktop/components/appModalBox/toggleApp', tmpInfo)
       // 分发mutation，更新任务栏图标信息
       _t.$store.commit('Platform/webDesktop/components/taskBarBox/toggleApp', tmpInfo)
-      console.log('changeZIndex 001')
       // 更新当前弹窗层级
       _t.$store.commit('Platform/webDesktop/components/appModalBox/changeZIndex', tmpInfo)
     }

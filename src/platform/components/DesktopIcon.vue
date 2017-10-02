@@ -118,7 +118,7 @@
         _t.isMouseDown = true
       },
       // 打开应用
-      openApp: function () {
+      openApp: async function () {
         console.log('dblclick...')
         let _t = this
         _t.isMouseDown = false
@@ -132,7 +132,7 @@
         // TODO 处理应用打开相关操作
         _t.$Message.info('打开应用: ' + _t.info.app.title)
         // 分发action，更新弹窗列表信息
-        _t.$store.dispatch('Platform/webDesktop/components/appModalBox/toggleApp', tmpInfo)
+        await _t.$store.dispatch('Platform/webDesktop/components/appModalBox/toggleApp', tmpInfo)
         // 分发mutation，更新任务栏图标信息
         _t.$store.commit('Platform/webDesktop/components/taskBarBox/toggleApp', tmpInfo)
       },

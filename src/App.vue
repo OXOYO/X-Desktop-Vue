@@ -17,15 +17,11 @@
 </style>
 
 <template>
-  <Platform></Platform>
+  <router-view></router-view>
 </template>
 
 <script>
-  import Platform from './platform/pages/Index.vue'
   export default {
-    name: 'App',
-    components: {
-      Platform
-    }
+    name: 'App'
   }
 </script>

@@ -46,11 +46,11 @@
     <div class="task-bar-box-bg"></div>
     <div class="task-bar-box-main">
       <!-- TODO 任务栏图标列表 -->
-      <u-task-bar-icon
+      <TaskBarIcon
         v-for="item in iconMap"
         :key="item.app.name"
         :info="item"
-      ></u-task-bar-icon>
+      ></TaskBarIcon>
     </div>
   </div>
 </template>
@@ -62,7 +62,7 @@
   export default {
     name: 'TaskBarBox',
     components: {
-      'u-task-bar-icon': TaskBarIcon
+      TaskBarIcon
     },
     // TODO 从state拉取任务栏图标信息
     computed: {

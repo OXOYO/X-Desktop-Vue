@@ -65,7 +65,7 @@ export const Serv = {
     let ret = resBody
     if (res) {
       // 弹窗提示
-      if ((res.status !== 200 || res.data.status !== 200) && showModal) {
+      if (res.data.status !== 200 && showModal) {
         Vue.prototype.$Message.error(res.msg || res.data.msg || '请求异常，请检查上送、返回。')
       }
     } else {

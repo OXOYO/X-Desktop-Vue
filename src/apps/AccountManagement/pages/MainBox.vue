@@ -24,7 +24,7 @@
 
 <template>
   <div class="main-box">
-    <Tabs v-model="currentTab" class="main-tabs" @on-click="handleCurrentTab">
+    <Tabs :value="currentTab" class="main-tabs" @on-click="handleCurrentTab">
       <Tab-pane label="查询" name="search" class="main-tab-pane">
         <Search></Search>
       </Tab-pane>
@@ -65,7 +65,7 @@
         _t.$store.commit('Apps/AccountManagement/currentTab/update', currentTab)
       }
     },
-    created: function () {
+    mounted: function () {
       let _t = this
       _t.$nextTick(function () {
         _t.handleCurrentTab('search')

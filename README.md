@@ -1,6 +1,9 @@
 # X-Desktop-Vue
 
-> A Vue.js project
+> A web Desktop with vue.
+
+## Preview
+![X-Desktop-Vue](https://raw.githubusercontent.com/OXOYO/X-Desktop-Vue/master/docs/images/preview_001.gif "X-Desktop-Vue")
 
 ## Build Setup
 

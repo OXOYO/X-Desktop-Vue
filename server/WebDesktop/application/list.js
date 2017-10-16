@@ -27,15 +27,15 @@ export default {
             status: 1,
             create_time: '1506861124558',
             update_time: '1506861124558',
-            config: '{"app":{"icon":"/static/desktopIcon/AccountManagement.png","x":0,"y":0,"index":""},"modal":{"size":"middle","isShow":false,"zIndex":600,"enableResize":["min","max","reset","close"]},"taskBar":{"isPinned":false}}'
+            config: '{"app":{"icon":"./static/desktopIcon/AccountManagement.png","x":0,"y":0,"index":""},"modal":{"size":"middle","isShow":false,"zIndex":600,"enableResize":["min","max","reset","close"]},"taskBar":{"isPinned":false}}'
           },
-          config: '{"app":{"id":"","name":"AccountManagement","icon":"/static/desktopIcon/AccountManagement.png","title":"账号管理","x":0,"y":0,"index":""},"modal":{"size":"middle","isShow":false,"zIndex":600,"enableResize":["min","max","reset","close"],"style":{"width":"1000px"}},"taskBar":{"isPinned":false}}'
+          config: '{"app":{"id":"","name":"AccountManagement","icon":"./static/desktopIcon/AccountManagement.png","title":"账号管理","x":0,"y":0,"index":""},"modal":{"size":"middle","isShow":false,"zIndex":600,"enableResize":["min","max","reset","close"],"style":{"width":"1000px"}},"taskBar":{"isPinned":false}}'
           /*
           config: {
             app: {
               id: '',
               name: 'AccountManagement',
-              icon: '/static/desktopIcon/AccountManagement.png',
+              icon: './static/desktopIcon/AccountManagement.png',
               title: '账号管理',
               x: 0,
               y: 0,

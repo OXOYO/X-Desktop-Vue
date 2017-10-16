@@ -69,7 +69,7 @@ Vue.prototype.$Message.config({
 const routerInstance = new VueRouter({
   // 开启 HTML5 history 模式
   mode: 'history',
-  base: '/platform/',
+  base: '/x-desktop-vue/',
   routes: routers
 })
 // 创建导航钩子

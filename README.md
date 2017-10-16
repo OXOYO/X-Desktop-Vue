@@ -3,6 +3,8 @@
 > A web Desktop with vue.
 
 ## Preview
+<a href="https://oxoyo.github.io/X-Desktop-Vue/" target="_blank">Preview</a>
+
 ![X-Desktop-Vue](https://raw.githubusercontent.com/OXOYO/X-Desktop-Vue/master/docs/images/preview_001.gif "X-Desktop-Vue")
 
 ## Build Setup

@@ -12,12 +12,13 @@
     padding: 5px;
     text-align: center;
     display: inline-block;
-    position: absolute;
+    position: relative;
     box-sizing: border-box;
     border: 1px solid transparent;
     border-radius: 2px;
     transition: all .2s ease-out;
     user-select:none;
+    writing-mode: lr-tb;
 
     &:after {
       content: ' ';
@@ -53,20 +54,25 @@
     }
     span {
       display: inline-block;
+      width: 100%;
       color: #ffffff;
       cursor: default;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 </style>
 
 <template>
   <!-- TODO 支持图标的拖拽，自动排序 -->
+  <!-- :style="{ left: info.app.x + 'px', top: info.app.y + 'px' }" -->
   <div
     class="desktop-icon"
-    :style="{ left: info.app.x + 'px', top: info.app.y + 'px' }"
     @mousedown.left="mouseDownHandle"
     @dblclick="openApp"
     @contextmenu.stop.prevent="desktopIconRightClick($event)"
+    :title="info.app.title"
   >
     <!--@mouseup.left="openApp"-->
     <!--@dblclick="openApp"-->

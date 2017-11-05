@@ -66,8 +66,10 @@
     }
 
     .app-modal-header {
+      position: absolute;
+      top: 0;
+      z-index: 600;
       display: inline-block;
-      position: relative;
       width: 100%;
       height: 30px;
       line-height: 30px;
@@ -107,12 +109,11 @@
       }
     }
     .app-modal-body {
-      /*position: absolute;*/
-      /*top: 30px;*/
-      /*right: 0;*/
-      /*bottom: 0;*/
-      /*left: 0;*/
-      /*overflow: auto;*/
+      position: absolute;
+      top: 30px;
+      bottom: 0;
+      z-index: 600;
+      overflow: auto;
       width: 100%;
       padding: 10px;
     }
@@ -133,6 +134,10 @@
         opacity: 0;
         transform: scale(2.5);
       }
+    }
+    .app-modal-iframe {
+      width: 100%;
+      height: 100%;
     }
   }
 </style>
@@ -202,6 +207,16 @@
       </div>
     </div>
     <div class="app-modal-body">
+      <iframe
+        class="app-modal-iframe"
+        v-if="info.modal.type && info.modal.type === 'iframe'"
+        :src="info.app.url"
+        frameborder="0"
+      >
+      </iframe>
+      <keep-alive>
+        <component :is="info.component" v-if="!(info.modal.type && info.modal.type === 'iframe') && !info.closeApp"></component>
+      </keep-alive>
       <slot></slot>
     </div>
     <div class="app-modal-footer"></div>

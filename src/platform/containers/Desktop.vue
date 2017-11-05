@@ -42,9 +42,9 @@
       :key="item.app.name"
       :info="item"
     >
-      <keep-alive>
+      <!--<keep-alive>
           <component :is="item.component" v-if="item.component"></component>
-      </keep-alive>
+      </keep-alive>-->
     </AppModal>
     <!-- TODO Widget -->
   </div>

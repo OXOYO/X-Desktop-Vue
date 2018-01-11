@@ -2,6 +2,9 @@
 
 > A web Desktop with vue.
 
+## Next Version
+[X-WebDesktop-Vue V2.0.0](https://github.com/OXOYO/X-WebDesktop-Vue)
+
 ## Preview
 <a href="https://oxoyo.github.io/X-Desktop-Vue/" target="_blank">Preview</a>
 
